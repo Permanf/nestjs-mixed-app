@@ -5,6 +5,7 @@ import {
   Param,
   Post,
   Put,
+  Request,
   UseGuards,
 } from '@nestjs/common';
 import { UserService } from './users.service';
@@ -29,7 +30,7 @@ export class UserController {
 
   @UseGuards(JwtGuard)
   @Get()
-  getAllUsers() {
+  getAllUsers(@Request() req) {
     return this.userService.getAllUsers();
   }
 }
